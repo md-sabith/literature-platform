@@ -14,7 +14,7 @@ const AdminPortal = () => {
     e.preventDefault();
     setError('');
     try {
-      const { data } = await axios.post('http://localhost:5000/api/admin/admin-login', formData);
+      const { data } = await axios.post('https://literature-platform-backend.onrender.com/api/admin/admin-login', formData);
       
       if (data.user.role !== 'admin') {
         setError('Access denied. You do not have administrative privileges.');

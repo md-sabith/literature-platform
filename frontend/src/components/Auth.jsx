@@ -16,7 +16,7 @@ const Auth = ({ isOpen, onClose }) => {
     setError('');
     try {
       const endpoint = isLogin ? '/auth/login' : '/auth/signup';
-      const { data } = await axios.post(`http://localhost:5000/api${endpoint}`, formData);
+      const { data } = await axios.post(`https://literature-platform-backend.onrender.com/api${endpoint}`, formData);
       setUser(data.user, data.token);
       onClose();
     } catch (err) {

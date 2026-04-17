@@ -14,7 +14,7 @@ const AdminDashboard = () => {
 
     const fetchPending = async () => {
         try {
-            const { data } = await axios.get('http://localhost:5000/api/admin/pending', {
+            const { data } = await axios.get('https://literature-platform-backend.onrender.com/api/admin/pending', {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setPendingWorks(data);
@@ -36,7 +36,7 @@ const AdminDashboard = () => {
 
     const handleAction = async (id, action) => {
         try {
-            await axios.put(`http://localhost:5000/api/admin/${id}/${action}`, {}, {
+            await axios.put(`https://literature-platform-backend.onrender.com/api/admin/${id}/${action}`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setPendingWorks(prev => prev.filter(work => work._id !== id));

@@ -31,7 +31,7 @@ const Signup = () => {
     e.preventDefault();
     setError('');
     try {
-      const { data } = await axios.post('http://localhost:5000/api/auth/signup', formData);
+      const { data } = await axios.post('https://literature-platform-backend.onrender.com/api/auth/signup', formData);
       setUser(data.user, data.token);
       navigate('/');
     } catch (err) {
