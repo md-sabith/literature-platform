@@ -10,7 +10,7 @@
 }
 
 .manuscript-card {
-  @apply bg-paper-50 border border-paper-200 shadow-manuscript rounded-sm p-4 md:p-6 relative overflow-hidden;
+  @apply bg-paper-50 border border-paper-200 shadow-manuscript rounded-sm p-2 md:p-4 relative overflow-hidden;
 }
 
 body {

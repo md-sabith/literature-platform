@@ -1,11 +1,11 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
-import UserSidebar from '../components/UserSidebar';
+import AdminNavbar from '../components/AdminNavbar';
 import Leaderboard from '../components/Leaderboard';
 import { useStore } from '../store/useStore';
 import Auth from '../components/Auth';
 import UploadWork from '../components/UploadWork';
 import { Trophy } from 'lucide-react';
+import SideBar from '../components/SideBar';
 
 const LeaderboardPage = () => {
     const { isSidebarOpen } = useStore();
@@ -13,16 +13,13 @@ const LeaderboardPage = () => {
     const [uploadOpen, setUploadOpen] = React.useState(false);
 
     return (
-        <>
-            <UserSidebar />
-            <div className="min-h-screen bg-paper-100 pb-20 transition-all duration-300">
-                <Navbar 
-                    onAuthClick={() => setAuthOpen(true)} 
-                    onUploadClick={() => setUploadOpen(true)} 
-                />
+        <div className="min-h-screen bg-paper-100 flex">
+            <SideBar />
+            <AdminNavbar />
 
-                <main className={`transition-all duration-300 ${isSidebarOpen ? 'lg:pl-56' : 'lg:pl-24'} mt-16 pt-16 flex-1 p-2 md:p-2 overflow-y-auto`}>
-                    <div className='mx-auto'>
+            <main className={`transition-all duration-500 ease-in-out ${isSidebarOpen ? 'lg:pl-48' : 'lg:pl-12'} flex-1 pt-20 overflow-y-auto`}>
+                <div className="p-4 md:p-12">
+                    <div>
                         <div className="flex items-center space-x-4 mb-8 pb-4 border-b border-paper-200">
                             <Trophy className="w-10 h-10 text-amber-500" />
                             <div>
@@ -33,12 +30,12 @@ const LeaderboardPage = () => {
 
                         <Leaderboard />
                     </div>
-                </main>
+                </div>
+            </main>
 
-                <Auth isOpen={authOpen} onClose={() => setAuthOpen(false)} />
-                <UploadWork isOpen={uploadOpen} onClose={() => setUploadOpen(false)} />
-            </div>
-        </>
+            <Auth isOpen={authOpen} onClose={() => setAuthOpen(false)} />
+            <UploadWork isOpen={uploadOpen} onClose={() => setUploadOpen(false)} />
+        </div>
     );
 };
 

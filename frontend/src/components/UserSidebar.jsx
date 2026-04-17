@@ -9,41 +9,41 @@ function UserSidebar() {
 
     if (!isSidebarOpen) {
         return (
-            <div className='hidden lg:flex w-16 h-screen bg-ink text-paper-50 flex-col z-50 fixed left-0 top-0 shadow-2xl items-center pt-4'>
+            <div className='hidden lg:flex w-12 h-screen bg-ink text-paper-50 flex-col z-50 fixed left-0 top-0 shadow-2xl items-center pt-4'>
                 <button
                     onClick={() => setSidebarOpen(true)}
-                    className="p-5 hover:bg-paper-50/10 transition-all"
+                    className="p-2 hover:bg-paper-50/10 transition-all"
                     title="Open Sidebar"
                 >
-                    <PanelLeftOpen className="h-8 w-8" />
+                    <PanelLeftOpen className="h-6 w-6" />
                 </button>
 
-                <div className="rounded-full mt-4 overflow-hidden border-2 border-paper-50/20 shadow-lg">
+                <div className="rounded-full mt-4 p-1 overflow-hidden hover:bg-paper-50/10 transition-all">
                     {user?.profilePicture ? (
-                        <img src={user.profilePicture} alt="Avatar" className="w-10 h-10 object-cover" />
+                        <img src={user.profilePicture} alt="Avatar" className="w-8 h-8 object-cover rounded-full" />
                     ) : (
-                        <div className="p-2 bg-paper-50 w-full h-full flex items-center justify-center">
-                            <User className="w-6 h-6 text-ink" />
+                        <div className="p-1 w-full h-full flex items-center justify-center">
+                            <User className="w-6 h-6 text-paper" />
                         </div>
                     )}
                 </div>
 
-                <nav className="flex-1 p-6 space-y-4 mt-4">
+                <nav className="flex-1 p-6 space-y-4 mt-8">
                     <Link to="/">
                         <div className="p-2 hover:bg-paper-50/10 rounded-lg transition-all">
-                            <Home className="w-7 h-7 opacity-70 hover:opacity-100" />
+                            <Home className="w-6 h-6 opacity-70 hover:opacity-100" />
                         </div>
                     </Link>
 
                     <Link to="/user-works">
                         <div className="p-2 hover:bg-paper-50/10 rounded-lg transition-all">
-                            <Pen className="w-7 h-7 opacity-70 hover:opacity-100" />
+                            <Pen className="w-6 h-6 opacity-70 hover:opacity-100" />
                         </div>
                     </Link>
 
                     <Link to="/leaderboard">
                         <div className="p-2 hover:bg-paper-50/10 rounded-lg transition-all">
-                            <Trophy className="w-7 h-7 opacity-70 hover:opacity-100" />
+                            <Trophy className="w-6 h-6 opacity-70 hover:opacity-100" />
                         </div>
                     </Link>
                 </nav>
@@ -62,9 +62,9 @@ function UserSidebar() {
                         </button>
                     ) : (
                         <Link to="/login" className="block w-full" onClick={() => setSidebarOpen(false)}>
-                            <button className="w-full p-5 flex items-center justify-center space-x-3 text-white hover:bg-white/10 transition-all group">
+                            <button className="w-full p-5 flex items-center justify-center space-x-3 text-paper hover:bg-paper/10 transition-all group">
                                 <LogIn className="w-5 h-5" />
-                                
+
                             </button>
                         </Link>
                     )}
@@ -81,57 +81,57 @@ function UserSidebar() {
                 onClick={() => setSidebarOpen(false)}
             />
 
-            <aside className="w-72 h-screen bg-ink text-paper-50 flex flex-col z-50 fixed left-0 top-0 shadow-2xl border-r border-paper-50/5">
-                <div className="p-8 border-b border-paper-50/10 relative group">
+            <aside className="w-48 h-screen bg-ink text-paper-50 flex flex-col z-50 fixed left-0 top-0 shadow-2xl border-r border-paper-50/5">
+                <div className="border-b border-paper-50/10 relative group">
                     <button
                         onClick={() => setSidebarOpen(false)}
                         className="absolute top-4 right-2 p-2 text-paper-50/40 hover:text-paper-50 hover:bg-paper-50/10 rounded-full transition-all"
                         title="Close Sidebar"
                     >
-                        <PanelLeftClose className="h-8 w-8" />
+                        <PanelLeftClose className="h-6 w-6" />
                     </button>
 
-                    <div className="flex items-center space-x-3 mb-2 pt-8">
-                        <div className="rounded-full overflow-hidden border-2 border-paper-50/20 shadow-lg">
+                    <div className="flex items-center space-x-3 mb-2 mt-16 p-2">
+                        <div className="rounded-xl">
                             {user?.profilePicture ? (
-                                <img src={user.profilePicture} alt="Avatar" className="w-10 h-10 object-cover" />
+                                <img src={user.profilePicture} alt="Avatar" className="w-7 h-7 object-cover rounded-full" />
                             ) : (
-                                <div className="p-2 bg-paper-50 w-full h-full flex items-center justify-center">
-                                    <User className="w-6 h-6 text-ink" />
+                                <div className="">
+                                    <User className="w-7 h-7 text-paper" />
                                 </div>
                             )}
                         </div>
                         <div>
-                            <h1 className="text-xl font-black uppercase tracking-[0.2em]">{user?.username || 'Manuscript'}</h1>
-                            <p className="text-[10px] opacity-40 uppercase tracking-[0.3em] font-bold">{user ? 'Legendary Member' : 'Glory your Art'}</p>
+                            <h1 className="text-[14px] font-black uppercase tracking-[0.2em]">{user?.username || 'Manuscript'}</h1>
+                            <p className="text-[8px] opacity-40 uppercase tracking-[0.3em] font-bold">{user ? 'Legendary Member' : 'Glory your Art'}</p>
                         </div>
                     </div>
                 </div>
 
-                <nav className="flex-1 p-6 space-y-4 overflow-y-auto">
-                    <Link to="/" className="flex items-center space-x-4 p-4 rounded-xl bg-paper-50/5 hover:bg-paper-50/10 transition-all group border border-transparent hover:border-paper-50/10">
-                        <div className="p-2 bg-paper-50/10 rounded-lg group-hover:bg-paper-50/20 transition-all">
+                <nav className="flex-1 p-1 space-y-4 overflow-y-auto mt-4">
+                    <Link to="/" className="flex items-center space-x-4 p-2 rounded-xl hover:bg-paper-50/5 transition-all group border border-transparent hover:border-paper-50/10">
+                        <div className="p-2">
                             <Home className="w-4 h-4 opacity-70 group-hover:opacity-100" />
                         </div>
-                        <span className="text-sm font-bold uppercase tracking-widest">Gallery Feed</span>
+                        <span className="text-[12px] font-bold uppercase tracking-widest text-paper-50/80 group-hover:text-paper-50">Gallery Feed</span>
                     </Link>
 
-                    <Link to="/user-works" className="flex items-center space-x-4 p-4 rounded-xl bg-paper-50/5 hover:bg-paper-50/10 transition-all group border border-transparent hover:border-paper-50/10">
-                        <div className="p-2 bg-paper-50/10 rounded-lg group-hover:bg-paper-50/20 transition-all">
+                    <Link to="/user-works" className="flex items-center space-x-4 p-2 rounded-xl hover:bg-paper-50/5 transition-all group border border-transparent hover:border-paper-50/10">
+                        <div className="p-2">
                             <Pen className="w-4 h-4 opacity-70 group-hover:opacity-100" />
                         </div>
-                        <span className="text-sm font-bold uppercase tracking-widest">My Works</span>
+                        <span className="text-[12px] font-bold uppercase tracking-widest text-paper-50/80 group-hover:text-paper-50">My Works</span>
                     </Link>
 
-                    <Link to="/leaderboard" className="flex items-center space-x-4 p-4 rounded-xl bg-paper-50/5 hover:bg-paper-50/10 transition-all group border border-transparent hover:border-paper-50/10">
-                        <div className="p-2 bg-paper-50/10 rounded-lg group-hover:bg-paper-50/20 transition-all">
+                    <Link to="/leaderboard" className="flex items-center space-x-4 p-2 rounded-xl hover:bg-paper-50/5 transition-all group border border-transparent hover:border-paper-50/10">
+                        <div className="p-2">
                             <Trophy className="w-4 h-4 opacity-70 group-hover:opacity-100" />
                         </div>
-                        <span className="text-sm font-bold uppercase tracking-widest">Hall of Fame</span>
+                        <span className="text-[12px] font-bold uppercase tracking-widest text-paper-50/80 group-hover:text-paper-50">Hall of Fame</span>
                     </Link>
                 </nav>
 
-                <div className="p-6 border-t border-paper-50/10 bg-black/20">
+                <div className="p-4 border-t border-paper-50/10 bg-black/20">
                     {user ? (
                         <button
                             onClick={() => {

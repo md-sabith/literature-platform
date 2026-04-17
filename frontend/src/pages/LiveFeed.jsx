@@ -8,6 +8,7 @@ import UploadWork from '../components/UploadWork';
 import AdminPanel from '../components/AdminPanel';
 import AdminLogin from '../components/AdminLogin';
 import { BookText, ScrollText, Filter } from 'lucide-react';
+import AdminNavbar from '../components/AdminNavbar';
 
 function LiveFeed() {
     const { works, fetchWorks, loading, user, isSidebarOpen } = useStore();
@@ -26,26 +27,25 @@ function LiveFeed() {
         : works.filter(w => w.category === filter);
 
     return (
-        <>
+        <div className="min-h-screen bg-paper-100 flex">
             <SideBar />
-            <div className="min-h-screen bg-paper-100 pb-20 transition-all duration-300">
+            <AdminNavbar />
 
-
-
-                <main className={`transition-all duration-300 ${isSidebarOpen ? 'lg:pl-72' : 'lg:pl-0'} pt-8 flex-1 p-4 md:p-8 overflow-y-auto`}>
-                    <div className="max-w-7xl mx-auto px-4 md:px-8">
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <main className={`transition-all duration-500 ease-in-out ${isSidebarOpen ? 'lg:pl-48' : 'lg:pl-12'} flex-1 pt-20 overflow-y-auto`}>
+                <div className="p-4 md:p-12">
+                    <div className="px-4 md:px-2">
+                        <div>
 
                             {/* Main Feed */}
                             <div className="lg:col-span-8 order-2 lg:order-1">
                                 <div className="flex items-center justify-between mb-8 pb-4 border-b border-paper-200">
                                     <div className="flex items-center space-x-3">
-                                        <ScrollText className="w-6 h-6 text-ink/40" />
-                                        <h2 className="text-xl font-bold uppercase tracking-[0.2em] text-ink/60">Live Archives (Admin)</h2>
+                                        <ScrollText className="w-10 h-10 text-amber-500" />
+                                        <h2 className="text-3xl font-serif font-black uppercase tracking-widest text-ink">Live Archives</h2>
                                     </div>
 
                                     <div className="flex items-center space-x-2">
-                                        <Filter className="w-4 h-4 text-ink/40" />
+                                        <Filter className="w-4 h-4 text-ink" />
                                         <div className="flex bg-paper-200/50 p-1 rounded-sm">
                                             {['All', 'Story', 'Poem', 'Article'].map((cat) => (
                                                 <button
@@ -81,7 +81,7 @@ function LiveFeed() {
                                 )}
                             </div>
 
-                            <div className="hidden lg:block lg:col-span-4 order-1 lg:order-2 space-y-8">
+                            {/* <div className="hidden lg:block lg:col-span-4 order-1 lg:order-2 space-y-8">
                                 <div className="sticky top-24">
                                     <Leaderboard limit={5} showFullLink={true} />
 
@@ -92,22 +92,22 @@ function LiveFeed() {
                                         </p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
 
                         </div>
                     </div>
-                </main>
+                </div>
+            </main>
 
-                <Auth isOpen={authOpen} onClose={() => setAuthOpen(false)} />
-                <UploadWork isOpen={uploadOpen} onClose={() => setUploadOpen(false)} />
-                <AdminPanel isOpen={adminOpen} onClose={() => setAdminOpen(false)} />
-                <AdminLogin
-                    isOpen={adminLoginOpen}
-                    onClose={() => setAdminLoginOpen(false)}
-                    onLoginSuccess={() => setAdminOpen(true)}
-                />
-            </div>
-        </>
+            <Auth isOpen={authOpen} onClose={() => setAuthOpen(false)} />
+            <UploadWork isOpen={uploadOpen} onClose={() => setUploadOpen(false)} />
+            <AdminPanel isOpen={adminOpen} onClose={() => setAdminOpen(false)} />
+            <AdminLogin
+                isOpen={adminLoginOpen}
+                onClose={() => setAdminLoginOpen(false)}
+                onLoginSuccess={() => setAdminOpen(true)}
+            />
+        </div>
     );
 }
 

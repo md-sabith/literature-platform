@@ -27,7 +27,7 @@ const Leaderboard = ({ limit, showFullLink }) => {
           <Trophy className="w-8 h-8 text-amber-500" />
           <h2 className="text-2xl font-serif font-bold">Hall of Fame</h2>
         </div>
-        
+
         <div className="flex bg-paper-100 p-1 rounded-sm border border-paper-200">
           <button
             onClick={() => setActiveTab('works')}
@@ -66,8 +66,8 @@ const Leaderboard = ({ limit, showFullLink }) => {
                       <User className="w-5 h-5 text-ink/20" />
                     </div>
                   )}
-                  {index < 3 && <div className={cn("absolute -top-1 -right-1 w-4 h-4 rounded-full flex items-center justify-center text-[8px] font-bold", 
-                    index === 0 ? "bg-amber-500 text-white" : "bg-paper-300 text-ink/60")}>★</div>}
+                  {index < 3 && <div className={cn("absolute -top-1 -right-1 w-4 h-4 rounded-full flex items-center justify-center text-[8px] font-bold",
+                    index === 0 ? "bg-amber-500 text-paper" : "bg-paper-300 text-ink/60")}>★</div>}
                 </div>
                 <div>
                   <h3 className="font-serif font-bold text-lg group-hover:text-amber-800 transition-colors uppercase leading-none">
@@ -116,8 +116,8 @@ const Leaderboard = ({ limit, showFullLink }) => {
       </div>
 
       {showFullLink && (
-        <Link 
-          to="/leaderboard" 
+        <Link
+          to="/leaderboard"
           className="mt-6 flex items-center justify-center space-x-2 w-full p-4 border border-dashed border-paper-200 hover:border-ink/20 hover:bg-paper-100 transition-all group"
         >
           <span className="text-xs font-bold uppercase tracking-widest text-ink/40 group-hover:text-ink">View Full Hall of Fame</span>

@@ -35,8 +35,8 @@ const UserWorks = () => {
         <Navbar onAuthClick={() => setAuthOpen(true)} onUploadClick={() => setUploadOpen(true)} />
         <div className="min-h-screen bg-paper-100 flex flex-col">
           
-          <main className={`transition-all duration-300 ${isSidebarOpen ? 'lg:pl-72' : 'lg:pl-0'} flex-1 flex items-center justify-center p-8`}>
-            <div className="manuscript-card text-center max-w-md w-full py-12">
+          <main className={`transition-all duration-300 ${isSidebarOpen ? 'lg:pl-56' : 'lg:pl-24'} mt-16 pt-16 flex-1 flex items-center justify-center p-2`}>
+            <div className="manuscript-card text-center w-full py-12">
               <PenLine className="w-16 h-16 text-paper-200 mx-auto mb-4" />
               <h2 className="text-2xl font-serif font-bold text-ink mb-2">Identify Yourself</h2>
               <p className="text-ink/60 mb-6 italic">To view your personal archives, you must first sign the register.</p>
@@ -63,7 +63,7 @@ const UserWorks = () => {
           onUploadClick={() => setUploadOpen(true)} 
         />
 
-        <main className={`transition-all duration-300 ${isSidebarOpen ? 'lg:pl-72' : 'lg:pl-0'} flex-1 p-4 md:p-8`}>
+        <main className={`transition-all duration-300 ${isSidebarOpen ? 'lg:pl-48' : 'lg:pl-12'} pt-16 flex-1 p-4 md:p-12 overflow-y-auto`}>
           <div className="max-w-5xl mx-auto py-8">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-paper-200 pb-8 gap-6">
               <div className="flex items-center space-x-3">

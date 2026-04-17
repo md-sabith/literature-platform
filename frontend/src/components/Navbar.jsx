@@ -7,8 +7,8 @@ const Navbar = ({ onUploadClick }) => {
   const { user, logout, isSidebarOpen, setSidebarOpen } = useStore();
 
   return (
-    <nav className={`sticky top-0 z-10 bg-paper-50/80 backdrop-blur-md border-b border-paper-200 py-4 px-4 md:px-8 transition-all duration-300 ${isSidebarOpen ? 'lg:pl-72' : 'lg:pl-0'}`}>
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
+    <nav className={`fixed top-0 right-0 z-30 h-16 bg-paper-50/80 backdrop-blur-md border-b border-paper-200 transition-all duration-300 ${isSidebarOpen ? 'left-48' : 'left-0 lg:left-12'}`}>
+      <div className="h-full px-4 md:px-8 flex justify-between items-center">
         <div className="flex items-center space-x-4">
           {!isSidebarOpen && (
             <button 

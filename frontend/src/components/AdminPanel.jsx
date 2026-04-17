@@ -43,16 +43,16 @@ const AdminPanel = ({ isOpen, onClose }) => {
                     </p>
                   </div>
                   <div className="flex space-x-2">
-                    <button 
+                    <button
                       onClick={() => approveWork(work._id, 'approved')}
-                      className="p-2 bg-paper-100 border border-paper-200 text-green-600 hover:bg-green-600 hover:text-white transition-all flex items-center space-x-2"
+                      className="p-2 bg-paper-100 border border-paper-200 text-green-600 hover:bg-green-600 hover:text-paper transition-all flex items-center space-x-2"
                     >
                       <Check className="w-5 h-5" />
                       <span className="text-xs font-bold uppercase">Approve</span>
                     </button>
-                    <button 
+                    <button
                       onClick={() => rejectWork(work._id, 'rejected')}
-                      className="p-2 bg-paper-100 border border-paper-200 text-red-600 hover:bg-red-600 hover:text-white transition-all flex items-center space-x-2"
+                      className="p-2 bg-paper-100 border border-paper-200 text-red-600 hover:bg-red-600 hover:text-paper transition-all flex items-center space-x-2"
                     >
                       <X className="w-5 h-5" />
                       <span className="text-xs font-bold uppercase">Reject</span>
