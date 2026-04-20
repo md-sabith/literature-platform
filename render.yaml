@@ -17,6 +17,7 @@ services:
   # Frontend Service 
   - type: web
     name: ink-well-frontend
+    runtime: static
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishDir: dist
